@@ -1,25 +1,27 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
+const generateToken = require("./generateToken");
 
 const Users = require('../users/users-model.js');
 
 
-function generateToken(user) {
-  const payload = {
-    username: user.username,
-    subject: user.id
-  };
+// function generateToken(user) {
+//   const payload = {
+//     username: user.username,
+//     subject: user.id
+//   };
 
-  const secret = "My dog is my best friend";
+//   const secret = "My dog is my best friend";
 
-  const options = {
-    expiresIn: "1d"
-  }
+//   const options = {
+//     expiresIn: "1d"
+//   }
 
 
-  return jwt.sign(payload, secret, options);
-}
+//   return jwt.sign(payload, secret, options);
+// }
+
 // for endpoints beginning with /api/auth
 router.post('/register', (req, res) => {
   let user = req.body;
